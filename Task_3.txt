@@ -1,0 +1,73 @@
+2.Taks to create own resme in the form of JSON
+var address = {
+    "address1" : "First main",
+    "address2" : "Second main"
+}
+var mail = "vijay111shetty@gmail.com"
+var resume = {
+    "name" : "Vijay Shettisadavarti",
+    "mobile" : "7259928442",
+    "Education" : "B Tech",
+    "experience" : "2 years",
+    "Domain" : "Software testing",
+    "Applications worked with" : "Salesforce",
+    "Projects" : {
+        "first one" : "Salesforce for PL",
+        "Second one" : "Salesforce for CLOS",
+        "THird one" : "Salesforce for VLOS",
+    },
+    "Acadamics" : ["SSLC","PUC","BTECH"],
+    "Skills" : ["API testing", "Automation testing","selenium","Integration testing","Backend testing"],
+    address,
+    mail
+}
+
+1.Iterating JSON formatt using for of, for in, forEach and recrusive method
+resume["DOB"] = "03/10/1995"
+// console.log(resume)
+var keys = Object.keys(resume)
+function getkeys(data){
+    return Object.keys(data)
+}
+function print(resume){
+    // console.log(resume)
+    const keys = getkeys(resume)
+    for(let i=0;i<keys.length;i++){
+        if(typeof resume[keys[i]] === "object"){
+            // console.log(keys[i],resume[keys[i]])
+            print(resume[keys[i]])
+        }
+        else{
+            console.log(keys[i],":",resume[keys[i]])
+        }
+    }
+}
+for(let i=0;i<keys.length;i++){
+    console.log(`${keys[i]} => ${resume[keys[i]]}`)
+}
+for(let i of keys){
+    // console.log(i)
+    console.log(`${i} => ${resume[i]}`)
+}
+for(let i in keys){
+    console.log(`${keys[i]} => ${resume[keys[i]]}`)
+}
+keys.forEach((data)=>{
+    console.log(`${data} => ${resume[data]}`)
+})
+print(resume)
+
+3.difference between window, screen and document
+
+In JavaScript, the terms window, screen, and document are often used to refer to different parts of a web page or the browser environment. Here are their differences:
+
+Window:
+The window object represents the current browser window or tab. It is the top-level object that contains all the other objects in the browser environment. It is used to access and manipulate the properties and methods of the current window, such as the size and position of the window, and the browser history. The window object can be accessed using the global variable "window" or by using "this" inside the browser window.
+
+Screen:
+The screen object represents the physical screen or display device that the browser is running on. It is a top-level object that provides information about the user's screen size, resolution, and color depth. It also provides methods for displaying alerts and dialogs on the screen. The screen object can be accessed using the global variable "screen".
+
+Document:
+The document object represents the HTML document that is currently loaded in the browser window. It provides access to the content of the web page, such as the HTML elements, their attributes, and their contents. The document object is also used to manipulate the content of the web page dynamically using JavaScript. The document object can be accessed using the global variable "document".
+
+In summary, the window object represents the browser window or tab, the screen object represents the physical screen, and the document object represents the HTML document loaded in the browser window.
